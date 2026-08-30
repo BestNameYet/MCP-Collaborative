@@ -18,8 +18,9 @@ The required development sequence is:
 2. Design
 3. Test plan
 4. Traceability review
-5. Implementation
-6. Verification
+5. Prioritization/dependency planning
+6. Implementation
+7. Verification
 
 Implementation is subordinate to the approved requirements and design. Existing code does not silently redefine its requirements.
 
@@ -34,8 +35,12 @@ Every application profile SHALL contain, at minimum:
 ├── DESIGN.md
 ├── TEST_PLAN.md
 ├── TRACEABILITY.md
+├── REQUIREMENT_WORK_LEDGER.md
+├── PRIORITIZATION.md
 └── src/
 ```
+
+`REQUIREMENT_WORK_LEDGER.md` and `PRIORITIZATION.md` are mandatory project-governance artifacts. They do **not** create application behavior requirements and SHALL NOT be assigned application requirement identifiers merely because their maintenance is mandatory under this standard.
 
 Additional documents and directories may be added where needed.
 
@@ -63,7 +68,9 @@ Application profile implementation
 Verification evidence
 ```
 
-`TEST_PLAN.md` defines how requirements and design claims are verified. `TRACEABILITY.md` records the relationships among these artifacts.
+`TEST_PLAN.md` defines how requirements and design claims are verified. `TRACEABILITY.md` records the relationships among these artifacts. `PRIORITIZATION.md` records planned implementation order and technical dependencies. `REQUIREMENT_WORK_LEDGER.md` records the commit history of substantive work against requirements.
+
+Neither governance artifact may silently add, remove, or modify a normative application requirement. Normative application behavior remains controlled by `REQUIREMENTS.md` and applicable framework standards.
 
 A lower-level artifact SHALL NOT silently override a higher-level normative artifact.
 
@@ -245,7 +252,42 @@ A requirement without a verification method SHALL be treated as incomplete unles
 
 An implementation component that materially affects externally observable or invariant behavior SHOULD trace back to a requirement or documented design decision.
 
-## 10. SECURITY.md Requirements
+## 10. REQUIREMENT_WORK_LEDGER.md Requirements
+
+Every profile SHALL maintain a requirement work ledger as a project-governance artifact.
+
+For every normative application requirement, the ledger SHALL include:
+
+- requirement identifier;
+- requirement name or concise descriptor;
+- current work status;
+- a chronological history of each substantive commit that materially defines, designs, implements, tests, verifies, or changes that requirement;
+- the commit SHA;
+- the commit timestamp.
+
+A commit affecting multiple requirements SHALL be recorded against each affected requirement.
+
+Ledger-only commits whose sole purpose is maintaining the ledger SHALL NOT be recursively treated as substantive work on every listed requirement.
+
+The ledger SHALL NOT introduce new application requirements. Its maintenance obligation originates from this profile standard, not from the application domain specification.
+
+## 11. PRIORITIZATION.md Requirements
+
+Every profile SHALL maintain a requirement prioritization and dependency plan as a project-governance artifact.
+
+It SHALL list every normative application requirement and, for each requirement:
+
+- requirement identifier;
+- requirement name or concise descriptor;
+- necessary deliverables;
+- technical prerequisite requirements or prerequisite implementation tranches;
+- planned completion order or priority/tranche.
+
+The document SHALL establish an intended dependency-respecting completion order before implementation proceeds materially beyond the specification stage.
+
+Changes to prioritization do not themselves modify normative application requirements. If the underlying application behavior or normative dependency changes, `REQUIREMENTS.md` and other controlling artifacts must be amended separately as appropriate.
+
+## 12. SECURITY.md Requirements
 
 When required, `SECURITY.md` SHALL document applicable trust boundaries and information-flow controls.
 
@@ -259,7 +301,7 @@ For actor-perspective systems it SHALL address, at minimum:
 - treatment of untrusted semantic/model output;
 - relevant persistence/audit boundaries.
 
-## 11. OPERATIONS.md Requirements
+## 13. OPERATIONS.md Requirements
 
 When required, `OPERATIONS.md` SHALL define applicable operational behavior including:
 
@@ -273,7 +315,7 @@ When required, `OPERATIONS.md` SHALL define applicable operational behavior incl
 - migration/version compatibility where applicable;
 - operational verification procedures.
 
-## 12. Framework vs Application Requirements
+## 14. Framework vs Application Requirements
 
 Application requirements may specialize framework requirements but SHALL NOT weaken a framework invariant unless the framework standard explicitly permits that specialization.
 
@@ -289,21 +331,25 @@ A tic-tac-toe player's perspective exposes the board, game status, and informati
 
 The application-specific rule defines the permitted projection. It does not replace the framework information boundary.
 
-## 13. Specification Completeness Gate
+## 15. Specification Completeness Gate
 
 An application profile SHALL NOT be considered specification-complete until:
 
-1. all mandatory documents exist;
+1. all mandatory documents and governance artifacts exist;
 2. all normative requirements have stable IDs;
 3. the design addresses every applicable normative requirement;
 4. the test plan provides verification for every testable normative requirement;
 5. traceability is complete through the currently existing lifecycle stage;
-6. contradictions among requirements, design, tests, and framework standards are resolved;
-7. required security and operations documents exist when their triggering conditions apply.
+6. the requirement work ledger has an entry for every normative requirement;
+7. the prioritization plan lists every normative requirement with deliverables and dependencies;
+8. contradictions among requirements, design, tests, and framework standards are resolved;
+9. required security and operations documents exist when their triggering conditions apply.
 
 Implementation SHOULD NOT begin before this gate is satisfied.
 
-## 14. Implementation Conformance Gate
+Items 6 and 7 are governance completeness conditions only. They are not application runtime requirements.
+
+## 16. Implementation Conformance Gate
 
 An implemented application profile SHALL NOT be considered conforming until:
 
@@ -312,8 +358,11 @@ An implemented application profile SHALL NOT be considered conforming until:
 3. acceptance criteria pass;
 4. critical invariants pass their verification;
 5. unresolved deviations are explicitly documented;
-6. replay, perspective, concurrency, persistence, and failure guarantees required by the profile have been demonstrated.
+6. replay, perspective, concurrency, persistence, and failure guarantees required by the profile have been demonstrated;
+7. substantive requirement-related commits have been recorded in the requirement work ledger.
 
-## 15. Required Template
+The ledger condition records evidence of the development process; it does not change application runtime semantics.
 
-New application profiles SHALL begin from `APPLICATION_PROFILE_TEMPLATE.md` or an equivalent structure that preserves all mandatory sections defined by this standard.
+## 17. Required Template
+
+New application profiles SHALL begin from `APPLICATION_PROFILE_TEMPLATE.md` or an equivalent structure that preserves all mandatory sections and governance artifacts defined by this standard.
