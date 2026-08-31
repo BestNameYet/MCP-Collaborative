@@ -1,0 +1,20 @@
+{
+  "name": "mcp-collaborative",
+  "interface": {
+    "displayName": "MCP Collaborative"
+  },
+  "plugins": [
+    {
+      "name": "collaborative-tic-tac-toe",
+      "source": {
+        "source": "local",
+        "path": "./plugins/collaborative-tic-tac-toe"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

@@ -89,3 +89,21 @@ It is not itself an application requirement. It does not add behavior to the app
 ## Completion rule
 
 Requirements should be completed in this order unless a documented technical reason changes the dependency graph. A change to this plan is a project-planning change, not a change to the normative application requirements unless `REQUIREMENTS.md` is separately amended.
+
+## Implementation Status
+
+The 2026-08-31 implementation followed the fixed P1–P9 dependency order.
+
+| Tranche | Status | Delivered evidence |
+|---|---|---|
+| P1 | Implemented and locally tested | Immutable domain state, revision/pointer rules, N/K game logic, terminal evaluation |
+| P2 | Implemented and locally tested | Typed actor identity, role, mark, ordering, and validation |
+| P3 | Implemented and locally tested | Explicit allow-listed projection and fail-closed unknown-actor behavior |
+| P4 | Implemented and locally tested | Per-actor current projection and deterministic bounded projected history |
+| P5 | Implemented and locally tested | Projection/action mediation with validation retained by the service/domain boundary |
+| P6 | Implemented and locally tested | Genesis, accepted events, rejected audit separation, replay, and digest verification |
+| P7 | Implemented and locally tested | SQLite serialization, exact revision checks, action retry, and race test |
+| P8 | Implemented and protocol-tested | Four-tool STDIO MCP surface bundled in an OpenAI local plugin |
+| P9 | Locally validated; desktop install check remains | Unit suite, compile pass, real MCP initialize/tools-list exchange; final host discovery is user-side |
+
+No dependency-order change was required.

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "collaborative-tic-tac-toe": {
+      "command": "python",
+      "args": ["-m", "collaborative_ttt.mcp_server"]
+    }
+  }
+}

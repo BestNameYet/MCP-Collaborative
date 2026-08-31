@@ -1,8 +1,8 @@
 # MCP Collaborative Runtime
 
-This directory is reserved for runtime components of the MCP Collaborative framework.
+This directory is reserved for domain-independent runtime components of the MCP Collaborative framework.
 
-Implementation is intentionally deferred until the controlling application-profile requirements, design, test plan, and traceability artifacts are complete enough to pass the specification-completeness gate defined by `APPLICATION_PROFILE_STANDARD.md`.
+The first application-profile runtime is now implemented at `../plugins/collaborative-tic-tac-toe/`. It keeps the deterministic domain, SQLite authority boundary, projection adapter, and bundled STDIO MCP surface together while the framework-level abstractions remain under evaluation.
 
 Initial runtime responsibilities expected to be designed before implementation include:
 
@@ -21,4 +21,4 @@ Initial runtime responsibilities expected to be designed before implementation i
 - idempotency handling;
 - domain-adapter boundaries.
 
-No game-playing strategy belongs in the runtime orchestration layer.
+No game-playing strategy belongs in the runtime orchestration layer. The tic-tac-toe implementation preserves that boundary and can be mined for domain-independent framework components after profile conformance is verified in the local OpenAI host.

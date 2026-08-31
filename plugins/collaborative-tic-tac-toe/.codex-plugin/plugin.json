@@ -1,0 +1,26 @@
+{
+  "name": "collaborative-tic-tac-toe",
+  "version": "0.1.0",
+  "description": "Persistent multi-actor tic-tac-toe through a bundled local MCP server",
+  "author": {
+    "name": "BestNameYet",
+    "url": "https://github.com/BestNameYet"
+  },
+  "repository": "https://github.com/BestNameYet/MCP-Collaborative",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Collaborative Tic Tac Toe",
+    "shortDescription": "Play in shared, persistent MCP games.",
+    "longDescription": "Coordinate independent actors through authoritative turns, actor views, durable events, replay, and retry-safe moves.",
+    "developerName": "BestNameYet",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Create a two-player tic-tac-toe game.",
+      "Show my current game environment.",
+      "Submit my next move."
+    ],
+    "brandColor": "#166534"
+  },
+  "mcpServers": "./.mcp.json"
+}

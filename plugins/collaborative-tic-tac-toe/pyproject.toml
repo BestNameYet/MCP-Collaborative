@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "collaborative-tic-tac-toe"
+version = "0.1.0"
+description = "Persistent collaborative tic-tac-toe MCP server"
+requires-python = ">=3.11"
+dependencies = ["mcp>=1.18,<2"]
+
+[project.scripts]
+collab-tic-tac-toe-mcp = "collaborative_ttt.mcp_server:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

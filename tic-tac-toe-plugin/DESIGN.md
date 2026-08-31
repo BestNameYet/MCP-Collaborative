@@ -425,3 +425,46 @@ The core API must therefore consume ordinary data structures/value objects and r
 | Pure transition boundary | `TTT-STATE-003`, `TTT-BOUNDARY-001` |
 | No strategy in core | `TTT-INV-008`, `TTT-STRATEGY-001`, `TTT-BOUNDARY-002` |
 | One-revision-per-accepted-transition rule | supports `TTT-INV-005`; full concurrent commit serialization remains a later layer |
+
+## 17. Implemented Runtime Architecture
+
+The installable runtime is `../plugins/collaborative-tic-tac-toe/`.
+
+```text
+OpenAI local plugin host
+    -> bundled .mcp.json
+    -> Python STDIO MCP server
+    -> GameService authority boundary
+    -> SQLite BEGIN IMMEDIATE transaction
+    -> pure domain transition
+    -> accepted event + actor environments
+```
+
+The plugin manifest points `mcpServers` at `./.mcp.json`. The MCP configuration launches `python -m collaborative_ttt.mcp_server`; no HTTP listener, tunnel, public URL, or API key participates in the local path.
+
+### 17.1 Tool boundary
+
+The server exposes exactly:
+
+| Tool | Mutation | Purpose |
+|---|---:|---|
+| `create_game` | yes | Persist complete ordered genesis; identical reuse is idempotent |
+| `get_actor_environment` | no | Return current allow-listed view and bounded projected history |
+| `submit_move` | conditional | Atomically validate and commit or reject one action |
+| `verify_replay` | no | Compare deterministic replay and current-state digests |
+
+There is no raw state writer, execution-pointer setter, adapter-registration tool, unrestricted transaction reader, or strategic move chooser.
+
+### 17.2 Persistence and serialization
+
+SQLite stores genesis, current state, accepted events, idempotency results, rejected-attempt audit, and actor environments. Foreign keys, unique resulting revisions, unique `(game, actor, action)` identities, WAL, a busy timeout, and `BEGIN IMMEDIATE` serialize competing writers. State, accepted event, idempotency result, and every actor-environment update commit in one transaction.
+
+Rejected attempts never enter the accepted-event stream and never change state or actor history. An identical action retry returns the persisted original result. Reusing an action ID for different arguments returns `ACTION_ID_CONFLICT`.
+
+### 17.3 Perspective and environment policy
+
+`project_state` constructs views from an explicit field allow-list. Unknown actors and schema mismatch fail closed. Historical entries are the exact prior projections visible to that actor and are deterministically truncated to `history_depth`. Roles and perspectives are immutable for this prototype; a rematch or changed role therefore uses a new game genesis, preventing prior-view leakage across a perspective change.
+
+### 17.4 Replay
+
+Replay starts from persisted genesis and applies accepted events in sequence through the same pure transition function. `verify_replay` returns revision counts and SHA-256 digests rather than unrestricted state. Rejected attempts are never replayed.

@@ -269,3 +269,17 @@ The prototype succeeds when two to four independent AI player actors can complet
 8. the MCP server does not choose strategic moves for the players;
 9. the collaboration protocol continues to function across supported `N`, `K`, and player-count configurations; and
 10. the collaboration architecture remains usable beyond the tic-tac-toe domain.
+
+## 20. Mandatory Delivery Artifacts
+
+The following repository artifacts are mandatory companions to this profile:
+
+- `PRIORITIZATION.md` fixes dependency order and implementation tranches;
+- `REQUIREMENT_WORK_LEDGER.md` records every substantive requirement-affecting commit with its exact UTC timestamp;
+- `DESIGN.md` records the implemented deterministic and persistence boundaries;
+- `TEST_PLAN.md` records executable conformance coverage; and
+- `../plugins/collaborative-tic-tac-toe/` contains the installable local OpenAI plugin and MCP runtime.
+
+The initial runnable profile uses a bundled local STDIO MCP server declared by the plugin's `.mcp.json`. The ChatGPT desktop/Codex host launches that server directly. A public endpoint, third-party tunnel, OpenAI Platform tunnel, and OpenAI API key are not requirements of this local prototype.
+
+Local STDIO availability is a host boundary, not a change to collaboration semantics: ChatGPT web does not read a computer's local MCP configuration. Remote or public distribution may add another transport later without changing the server-owned game protocol.

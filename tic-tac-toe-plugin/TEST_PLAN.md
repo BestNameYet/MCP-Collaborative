@@ -540,15 +540,31 @@ This scenario establishes the deterministic core before MCP transport or actor a
 | `TTT-INV-005` | partially supported by revision exact-match tests; full simultaneous commit test deferred to concurrency layer |
 | `TTT-INV-008` | TST-INV-009 |
 
-## 17. Deferred Test Tranches
+## 17. Implemented Integration Test Tranches
 
-The following requirements remain deliberately outside this version of the test plan and shall be added before their implementation begins:
+The executable suite in `../plugins/collaborative-tic-tac-toe/tests/` now adds the previously deferred coverage:
 
-- `TTT-PERSPECTIVE-*`;
-- `TTT-ENV-*`;
-- `TTT-ADAPTER-*`;
-- `TTT-ORCH-004` full multi-actor integration;
-- `TTT-TXN-*`;
-- `TTT-CONCURRENCY-*` full serialization/idempotency behavior;
-- `TTT-INV-002`, `TTT-INV-006`, `TTT-INV-007`;
-- complete MCP end-to-end acceptance criteria.
+| Area | Executable coverage |
+|---|---|
+| Perspective | Exact view field allow-list, actor-specific `you`/turn values, no raw index/history-depth leakage, unknown actor fails closed |
+| Environment | Current revision updates, projected prior states, deterministic truncation to configured depth |
+| Adapter boundary | Service accepts semantic actions while pure server transition retains final validity authority |
+| Transactions | Durable genesis, accepted events, separate rejection audit, state/event equality on reopen |
+| Replay | Ordered reduction through the production transition function and current/replay digest equality |
+| Concurrency | Two independent service instances race at revision zero; exactly one commits and the other is stale |
+| Idempotency | Identical retry returns the stored result; changed request with reused ID is rejected |
+| MCP | Exact four-tool registration plus a real STDIO initialize and `tools/list` exchange |
+| End to end | Persistent two-player game reaches a win and clears the execution pointer |
+
+## 18. Validation Commands
+
+From repository root after installing the package in an isolated environment:
+
+```bash
+python -m compileall -q plugins/collaborative-tic-tac-toe/src plugins/collaborative-tic-tac-toe/tests
+python -m unittest discover -s plugins/collaborative-tic-tac-toe/tests -v
+```
+
+The transport check launches `python -m collaborative_ttt.mcp_server` through the MCP SDK's STDIO client, initializes a session, and asserts that `tools/list` returns only `create_game`, `get_actor_environment`, `submit_move`, and `verify_replay`.
+
+The remaining acceptance check is installation/enabling in the user's ChatGPT desktop/Codex host and confirmation through `/mcp`. It cannot be simulated by the repository unit-test process and does not justify substituting a tunnel or public endpoint.
