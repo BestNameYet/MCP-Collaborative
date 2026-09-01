@@ -105,5 +105,8 @@ The 2026-08-31 implementation followed the fixed P1–P9 dependency order.
 | P7 | Implemented and locally tested | SQLite serialization, exact revision checks, action retry, and race test |
 | P8 | Implemented and protocol-tested | Four-tool STDIO MCP surface bundled in an OpenAI local plugin |
 | P9 | Locally validated; desktop install check remains | Unit suite, compile pass, real MCP initialize/tools-list exchange; final host discovery is user-side |
+| P10 | Implemented; laptop acceptance remains | Windows isolated install/launch scripts, durable data path, official Secure MCP Tunnel STDIO profile, credential-hygiene tests, and browser Developer-mode runbook |
 
 No dependency-order change was required.
+
+P10 depends on the stable P8 MCP surface and P9 protocol validation. It changes only the host reachability path; it does not precede or modify game, persistence, projection, or orchestration behavior.

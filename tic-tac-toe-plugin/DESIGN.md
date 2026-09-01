@@ -431,16 +431,20 @@ The core API must therefore consume ordinary data structures/value objects and r
 The installable runtime is `../plugins/collaborative-tic-tac-toe/`.
 
 ```text
-OpenAI local plugin host
-    -> bundled .mcp.json
-    -> Python STDIO MCP server
+ChatGPT desktop/Codex OR browser ChatGPT Developer mode
+    -> bundled .mcp.json OR OpenAI Secure MCP Tunnel
+    -> private Python STDIO MCP server on the laptop
     -> GameService authority boundary
     -> SQLite BEGIN IMMEDIATE transaction
     -> pure domain transition
     -> accepted event + actor environments
 ```
 
-The plugin manifest points `mcpServers` at `./.mcp.json`. The MCP configuration launches `python -m collaborative_ttt.mcp_server`; no HTTP listener, tunnel, public URL, or API key participates in the local path.
+The plugin manifest points `mcpServers` at `./.mcp.json`. The MCP configuration launches `python -m collaborative_ttt.mcp_server`. Desktop/Codex uses that local path directly. Browser ChatGPT uses OpenAI `tunnel-client` to forward JSON-RPC to the same STDIO command through an outbound-only Secure MCP Tunnel. The server has no HTTP listener or public URL; the control-plane API key authenticates `tunnel-client`, not game actions, and is supplied only in the operator environment.
+
+### 17.5 Private Windows deployment
+
+`scripts/setup-windows.ps1` creates a plugin-local virtual environment, installs the package, and creates the durable data directory. `scripts/run-server.cmd` sets `COLLAB_TTT_DB` under `%LOCALAPPDATA%` and launches the installed console entry point. `scripts/start-tunnel.ps1` requires a runtime-provided `CONTROL_PLANE_API_KEY` and `tunnel_id`, initializes the official `sample_mcp_stdio_local` profile, runs `doctor --explain`, then runs the tunnel. No secret or tunnel identity is persisted in the repository.
 
 ### 17.1 Tool boundary
 
