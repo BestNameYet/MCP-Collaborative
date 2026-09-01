@@ -93,3 +93,12 @@ Known profile commits at ledger creation:
 Whenever a substantive commit is made that materially defines, designs, implements, tests, verifies, or changes one or more requirements, this ledger SHALL be updated to append that commit SHA and its GitHub commit timestamp to each affected requirement.
 
 This rule governs project bookkeeping only. It does not create a new `TTT-*` requirement and does not alter application conformance.
+
+## Private deployment extension
+
+| Requirement | Descriptor | Status | Commit history |
+|---|---|---|---|
+| TTT-DEPLOY-001 | Private laptop runtime | Implemented / locally tested | 2026-09-01T03:10:40Z — `0e5657b` — Windows isolated install, durable database path, and stable STDIO launcher |
+| TTT-DEPLOY-002 | Browser developer connector | Implemented / credentialed laptop acceptance pending | 2026-09-01T03:10:40Z — `0e5657b` — OpenAI Secure MCP Tunnel STDIO profile and ChatGPT Developer-mode runbook |
+| TTT-DEPLOY-003 | Credential hygiene | Implemented / locally tested | 2026-09-01T03:10:40Z — `0e5657b` — runtime-only key and tunnel identity with no embedded secret |
+| TTT-DEPLOY-004 | Acceptance boundary | Implemented / local portion tested | 2026-09-01T03:10:40Z — `0e5657b` — launcher tests and explicit user-side browser-to-laptop acceptance boundary |
