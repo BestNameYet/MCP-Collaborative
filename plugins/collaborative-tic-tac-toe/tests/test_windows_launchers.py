@@ -26,7 +26,8 @@ class WindowsLauncherTests(unittest.TestCase):
 
     def test_setup_installs_plugin_into_isolated_environment(self) -> None:
         script = (PLUGIN_ROOT / "scripts" / "setup-windows.ps1").read_text(encoding="utf-8")
-        self.assertIn("-3.11 -m venv", script)
+        self.assertIn("sys.version_info >= (3, 11)", script)
+        self.assertIn("-3 -m venv", script)
         self.assertIn("-m pip install $PluginRoot", script)
 
 
