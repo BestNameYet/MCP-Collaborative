@@ -278,8 +278,20 @@ The following repository artifacts are mandatory companions to this profile:
 - `REQUIREMENT_WORK_LEDGER.md` records every substantive requirement-affecting commit with its exact UTC timestamp;
 - `DESIGN.md` records the implemented deterministic and persistence boundaries;
 - `TEST_PLAN.md` records executable conformance coverage; and
-- `../plugins/collaborative-tic-tac-toe/` contains the installable local OpenAI plugin and MCP runtime.
+- `../plugins/collaborative-tic-tac-toe/` contains the installable private OpenAI plugin, MCP runtime, Windows launcher, and Secure MCP Tunnel setup scripts.
 
-The initial runnable profile uses a bundled local STDIO MCP server declared by the plugin's `.mcp.json`. The ChatGPT desktop/Codex host launches that server directly. A public endpoint, third-party tunnel, OpenAI Platform tunnel, and OpenAI API key are not requirements of this local prototype.
+The runnable profile uses one bundled local STDIO MCP server declared by the plugin's `.mcp.json`. ChatGPT desktop/Codex may launch it directly. For browser-based ChatGPT, OpenAI `tunnel-client` shall reach the same STDIO command through an OpenAI Secure MCP Tunnel associated with the target ChatGPT workspace/account. The laptop server shall not require a public listener, inbound firewall rule, third-party tunnel, or app-level OAuth for this private single-user deployment.
 
-Local STDIO availability is a host boundary, not a change to collaboration semantics: ChatGPT web does not read a computer's local MCP configuration. Remote or public distribution may add another transport later without changing the server-owned game protocol.
+Tunnel credentials are operational inputs, not repository content. The implementation shall not commit a runtime API key or `tunnel_id`. The laptop operator must supply them at launch, keep `tunnel-client` healthy, enable ChatGPT Developer mode, and create a developer-mode app using the Tunnel connection method. Local STDIO and tunneled STDIO are host boundaries only; they shall expose the same tools and shall not change collaboration semantics.
+
+### TTT-DEPLOY-001 — Private laptop runtime
+The distribution shall include a repeatable Windows installation and launch path using an isolated Python environment and a durable, user-controlled SQLite location.
+
+### TTT-DEPLOY-002 — Browser developer connector
+The distribution shall include a repeatable OpenAI Secure MCP Tunnel procedure that targets the local STDIO server and supports discovery from browser-based ChatGPT Developer mode.
+
+### TTT-DEPLOY-003 — Credential hygiene
+Tunnel identifiers and runtime credentials shall be supplied at operation time and shall not be embedded in repository files, generated scripts, tool metadata, or game records.
+
+### TTT-DEPLOY-004 — Acceptance boundary
+Repository tests shall verify the local MCP surface and tunnel-launch configuration. Credentialed browser-to-laptop operation shall be recorded as a user-side acceptance check and shall not be claimed from an environment that cannot run the user's laptop process and ChatGPT account.

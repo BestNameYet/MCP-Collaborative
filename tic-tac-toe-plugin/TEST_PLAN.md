@@ -554,6 +554,7 @@ The executable suite in `../plugins/collaborative-tic-tac-toe/tests/` now adds t
 | Concurrency | Two independent service instances race at revision zero; exactly one commits and the other is stale |
 | Idempotency | Identical retry returns the stored result; changed request with reused ID is rejected |
 | MCP | Exact four-tool registration plus a real STDIO initialize and `tools/list` exchange |
+| Private deployment | Windows launchers use an isolated environment, durable database, official local-STDIO tunnel profile, doctor validation, and no embedded credential |
 | End to end | Persistent two-player game reaches a win and clears the execution pointer |
 
 ## 18. Validation Commands
@@ -567,4 +568,4 @@ python -m unittest discover -s plugins/collaborative-tic-tac-toe/tests -v
 
 The transport check launches `python -m collaborative_ttt.mcp_server` through the MCP SDK's STDIO client, initializes a session, and asserts that `tools/list` returns only `create_game`, `get_actor_environment`, `submit_move`, and `verify_replay`.
 
-The remaining acceptance check is installation/enabling in the user's ChatGPT desktop/Codex host and confirmation through `/mcp`. It cannot be simulated by the repository unit-test process and does not justify substituting a tunnel or public endpoint.
+The remaining acceptance checks are installation/enabling in the user's ChatGPT desktop/Codex host and the credentialed browser route: run `tunnel-client` on the home laptop, create a ChatGPT developer-mode app using the associated Tunnel, confirm the exact four-tool discovery, create a game, read an actor environment, and submit a legal move. These checks require the user's laptop, Platform tunnel identity/runtime key, and ChatGPT account and therefore cannot be claimed by the repository unit-test process.
