@@ -1,0 +1,23 @@
+name: Dispatch Relay POST
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "Dispatch-Relay-Post/message.json"
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: POST message.json to ScriptAgent
+        run: |
+          curl --fail-with-body \
+            --request POST \
+            --header "Content-Type: application/json" \
+            --data-binary @Dispatch-Relay-Post/message.json \
+            "https://script.google.com/macros/s/AKfycbzjOwt07phxePU7E4wB1x6wOgbPvclYgoH0BMWpOg7db8RrlTiMaehwmaY-8SCQTiYf6Q/exec"
