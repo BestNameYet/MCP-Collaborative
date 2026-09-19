@@ -2,6 +2,11 @@
   "file_ID": "15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770",
   "named_range": "STACKED_SCHEMA_ENTRY",
   "input": {
-    "goal": "Map the implementation solution space, evaluate all 16 normalized permutations, identify cross-permutation patterns, and select the final architecture using independent semantic reviews and arbitration."
+    "goal": "Map the implementation solution space, evaluate all 16 normalized permutations, identify cross-permutation patterns, and select the final architecture using independent semantic reviews and arbitration.",
+    "output_policy": {
+      "kind": "sheet_artifact",
+      "name_prefix": "semantic_permutation_result",
+      "chunk_chars": 45000
+    }
   }
 }
