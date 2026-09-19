@@ -55,16 +55,9 @@ function doGet(e) {
         ? output.next_address
         : null;
 
-      const value =
-        output !== null &&
-        typeof output === "object" &&
-        Object.prototype.hasOwnProperty.call(output, "result")
-          ? output.result
-          : output;
-
       return {
         done: address === null,
-        value: value
+        value: output
       };
     }
   };
