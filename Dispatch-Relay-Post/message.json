@@ -3,6 +3,8 @@
     "timestamp": "2026-09-18T13:28:00-07:00",
     "provenance": "ChatGPT workflow test"
   },
-  "return_schema": {},
-  "schema_metadata": {}
+  "model": {
+    "return_schema": {},
+    "schema_metadata": {}
+  }
 }
