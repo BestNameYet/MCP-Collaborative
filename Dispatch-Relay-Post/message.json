@@ -1,8 +1,8 @@
 {
-  "file-metadata": {
+  "file_info": {
     "timestamp": "2026-09-18T13:28:00-07:00",
     "provenance": "ChatGPT workflow test"
   },
-  "response_schema": {},
-  "response_metadata": {}
+  "return_schema": {},
+  "schema_metadata": {}
 }
