@@ -1,6 +1,37 @@
 function doGet(e) {
-  const fileId = e.parameter.file_ID;
-  const startAddress = e.parameter.named_range;
+  const request = {
+    file_ID: e.parameter.file_ID,
+    named_range: e.parameter.named_range,
+    input:
+      e.parameter.input !== undefined &&
+      e.parameter.input !== null &&
+      e.parameter.input !== ""
+        ? JSON.parse(e.parameter.input)
+        : null
+  };
+
+  return runRequest(e, request);
+}
+
+
+function doPost(e) {
+  const request = JSON.parse(e.postData.contents);
+
+  return runRequest(e, {
+    file_ID: request.file_ID,
+    named_range: request.named_range,
+    input:
+      Object.prototype.hasOwnProperty.call(request, "input")
+        ? request.input
+        : null
+  });
+}
+
+
+function runRequest(e, request) {
+  const fileId = request.file_ID;
+  const startAddress = request.named_range;
+  const initialInput = request.input;
 
   if (!fileId || !startAddress) {
     return ContentService
@@ -62,7 +93,7 @@ function doGet(e) {
     }
   };
 
-  let step = iterator.next(null);
+  let step = iterator.next(initialInput);
 
   while (!step.done) {
     step = iterator.next(step.value);
