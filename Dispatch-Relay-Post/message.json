@@ -1,6 +1,6 @@
 {
     "file_ID": "15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770",
-    "named_range": "FUNCTION_03",
+    "named_range": "PROGRAM_ENTRY",
     "input": {
         "program_name": "trivial_five_step_progressive_addition",
         "program_steps": {
