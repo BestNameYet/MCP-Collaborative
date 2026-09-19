@@ -99,6 +99,14 @@ function runRequest(e, request) {
     step = iterator.next(step.value);
   }
 
+  const resultRange = spreadsheet.getRangeByName("RESULT");
+
+  if (!resultRange) {
+    throw new Error("Named range not found: RESULT");
+  }
+
+  resultRange.setValue(JSON.stringify(step.value));
+
   return ContentService
     .createTextOutput("0")
     .setMimeType(ContentService.MimeType.TEXT);
