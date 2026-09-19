@@ -20,4 +20,4 @@ jobs:
             --request POST \
             --header "Content-Type: application/json" \
             --data-binary @Dispatch-Relay-Post/message.json \
-            "https://script.google.com/macros/s/AKfycbzjOwt07phxePU7E4wB1x6wOgbPvclYgoH0BMWpOg7db8RrlTiMaehwmaY-8SCQTiYf6Q/exec"
+            "https://script.google.com/macros/s/AKfycbwHE-BOtWz2ZFeD-XXBfqFVruBzC758HfgYLCc3o133gQr4ku5zBHEggvNc_bD0IdJFYw/exec"
