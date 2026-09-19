@@ -1,25 +1,25 @@
 {
-    "file_ID": "15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770",
-    "named_range": "PROGRAM_ENTRY",
-    "input": {
-        "program_name": "trivial_five_step_progressive_addition",
-        "program_steps": {
-            "step_1": {
-                "baseline": "Preserve the input object and add feature_1=true."
-            },
-            "step_2": {
-                "baseline": "Preserve all prior fields and add feature_2=true."
-            },
-            "step_3": {
-                "baseline": "Preserve all prior fields and add feature_3=true."
-            },
-            "step_4": {
-                "baseline": "Preserve all prior fields and add feature_4=true."
-            },
-            "step_5": {
-                "baseline": "Preserve all prior fields, add feature_5=true, write the completed object to PROGRAM_OUTPUT, and halt."
-            }
-        },
-        "comparison_instruction": "For each step, the worker query is exactly 'Are you better than me?'. Interpret 'me' as the baseline implementation for that step. Use only the restricted function_context_view prepared by the semantic preiterator. Iteration overlays may add temporary questions, definitions, framing, or return fields; overlay return fields are stripped immediately and routed to metadata outside the worker view."
-    }
+  "file_ID": "15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770",
+  "named_range": "PROGRAM_ENTRY",
+  "input": {
+    "program_name": "trivial_five_step_progressive_addition",
+    "program_steps": {
+      "step_1": {
+        "baseline": "Preserve the input object and add feature_1=true."
+      },
+      "step_2": {
+        "baseline": "Preserve all prior fields and add feature_2=true."
+      },
+      "step_3": {
+        "baseline": "Preserve all prior fields and add feature_3=true."
+      },
+      "step_4": {
+        "baseline": "Preserve all prior fields and add feature_4=true."
+      },
+      "step_5": {
+        "baseline": "Preserve all prior fields, add feature_5=true, write the completed object to PROGRAM_OUTPUT, and halt."
+      }
+    },
+    "comparison_instruction": "For each step, the worker query is exactly 'Are you better than me?'. Interpret 'me' as the baseline implementation for that step. Use only the restricted function_context_view prepared by the semantic preiterator. Iteration overlays may add temporary questions, definitions, framing, or return fields; overlay return fields are stripped immediately and routed to metadata outside the worker view."
+  }
 }
