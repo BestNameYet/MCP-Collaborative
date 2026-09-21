@@ -1,7 +1,9 @@
 {
   "file_ID": "1yC6T4LQd4z5EGsxFgZuNMMPoILumSt-ep2boj7JLjX4",
-  "named_range": "AB_SCRIPT_PROJECT_READ",
+  "named_range": "APPLICATION_BUILDER_GATEWAY",
   "input": {
-    "script_id": "1twneIGYtkwKsYkF6Nn7q0F9tidVKmr3Nwf_9x8gIeuDO6GgxIDnOtNVd"
+    "file_ID": "1yC6T4LQd4z5EGsxFgZuNMMPoILumSt-ep2boj7JLjX4",
+    "named_range": "AB_GATEWAY_TEST_POINTER",
+    "input": {"test":"pointer"}
   }
 }
