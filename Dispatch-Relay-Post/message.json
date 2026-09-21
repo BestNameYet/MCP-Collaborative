@@ -1,12 +1,7 @@
 {
-  "file_ID": "15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770",
-  "named_range": "STACKED_SCHEMA_ENTRY",
+  "file_ID": "1yC6T4LQd4z5EGsxFgZuNMMPoILumSt-ep2boj7JLjX4",
+  "named_range": "APPLICATION_BUILDER_PROGRAM_ENTRY",
   "input": {
-    "goal": "Design the best implementation architecture for a program that accepts a natural-language goal and synthesizes an executable work specification rather than merely hand-authoring a return schema. The program must determine the work obligations implied by the goal, decide which work is deterministic, semantic, mixed, or external, generate schema-level worker segments and iterate those workers inside the work/schema representation rather than encoding each worker as an outer addressed function, derive action-specific projections of the authoritative underlying schema for each semantic action, decide when and how exact deterministic and Semantic Operator function definitions should be supplied at runtime, use stacked Semantic Operators and independent/adversarial semantic review where useful, keep automatic execution/readiness/binding decisions outside the local semantic decider when those decisions are mechanically determinable, generate granular heuristic procedures for semantic functions that can be interrogated by deterministic diagnostics, infer when a baseline/reference program is useful instead of assuming one is always required, derive only functionally useful metadata such as provenance, limitations, decision basis, diagnostic evidence and comparison evidence, and require a receipt in the return contract for every independently meaningful segment of work. Map the complete normalized implementation solution space for these design choices, evaluate every valid permutation semantically, extract implementation families, interactions, invariants, anti-patterns and Pareto regions, and select a final architecture through independent semantic deciders plus final arbitration. Storage and execution mechanics are implementation policies and must not reduce the semantic objective merely to fit a cell, request duration, or transport limitation.",
-    "output_policy": {
-      "kind": "sheet_artifact",
-      "name_prefix": "schema_synthesis_permutation_result",
-      "chunk_chars": 45000
-    }
+    "execution_id": "ab-2026-09-21T13:51:00-07:00"
   }
 }
