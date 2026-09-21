@@ -1,7 +1,20 @@
 {
   "file_ID": "1yC6T4LQd4z5EGsxFgZuNMMPoILumSt-ep2boj7JLjX4",
-  "named_range": "APPLICATION_BUILDER_PROGRAM_ENTRY",
+  "named_range": "AB_REMOTE_WORKER",
   "input": {
-    "execution_id": "ab-2026-09-21-stage01-build-v12-1"
+    "worker_request": {
+      "worker_id": "worker_1",
+      "stage_id": "application_builder_gateway",
+      "scope": ["whole_stage"],
+      "instruction": "Act as the remote implementation collaborator for Stage 01 only. The end product is a thin account-scoped Application Builder interface that lets other projects in the same account/workspace invoke the existing build engine. Do not create a second runtime, registry, program store, Schema Synthesizer, Semantic Operator, or duplicate execution state. Preserve every existing schema and scaffold shape. Apps Script is the HTTP/server/executor boundary. Google Sheets is the executable program/state substrate. Account-facing callers operate at intent level and should not see message.json, relay, next_address, or other execution-transport granularity. The gateway may resolve a target spreadsheet ID plus one entry named range for program-pointer execution or multiple named ranges for template-style invocation. Prefer the simplest implementation that reuses existing machinery. Do not require support tooling more difficult than the underlying capability. Return implementation guidance, risks, checks, evidence needs, and unresolved issues. Do not claim that external changes occurred.",
+      "artifact": {
+        "stage_code": "01",
+        "stage_name": "application_builder_gateway",
+        "artifact_name": "Application Builder Gateway",
+        "purpose": "Server-side entry point that accepts account-facing application-builder requests and invokes existing project machinery.",
+        "location_allowed_types": ["AppsScript", "Sheet-cell"],
+        "status": "not_started"
+      }
+    }
   }
 }
