@@ -5,21 +5,19 @@
     "bp_key": "BP-001",
     "start_address": "'BP Executions'!C1",
     "return_record": {
-      "requirement": "Enumerate every non-empty document reference before reading any.",
+      "requirement": "Resolve each reference to its document or artifact.",
       "return_schema": {
-        "references": [
-          "file_00000000889481fb92c148b71f526da1",
-          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=518696800",
-          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=133227873",
-          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1861056680",
-          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=435785444",
-          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=441806232",
-          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1169262625",
-          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1726092001",
-          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1927576730"
-        ],
-        "reference_count": 9,
-        "enumeration_completed_before_reads": true
+        "resolutions": [
+          {"source_reference":"file_00000000889481fb92c148b71f526da1","resolved_identity":"Semantic Operator Architecture Handoff","location":"/mnt/data/semantic_operator_architecture_handoff(1).pdf","source_type":"pdf","resolved":true},
+          {"source_reference":"https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=518696800","resolved_identity":"Function Registry — Programs","location":"Function Registry!Programs","source_type":"google_sheet_tab","resolved":true},
+          {"source_reference":"https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=133227873","resolved_identity":"Function Registry — Runtime Functions","location":"Function Registry!Runtime Functions","source_type":"google_sheet_tab","resolved":true},
+          {"source_reference":"https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1861056680","resolved_identity":"Function Registry — API","location":"Function Registry!API","source_type":"google_sheet_tab","resolved":true},
+          {"source_reference":"https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=435785444","resolved_identity":"Function Registry — Schema Synthesizer","location":"Function Registry!Schema Synthesizer","source_type":"google_sheet_tab","resolved":true},
+          {"source_reference":"https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=441806232","resolved_identity":"Function Registry — Action Projections","location":"Function Registry!Action Projections","source_type":"google_sheet_tab","resolved":true},
+          {"source_reference":"https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1169262625","resolved_identity":"Function Registry — Permutation Bootstrap","location":"Function Registry!Permutation Bootstrap","source_type":"google_sheet_tab","resolved":true},
+          {"source_reference":"https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1726092001","resolved_identity":"Function Registry — Gemini Generic Function","location":"Function Registry!Gemini Generic Function","source_type":"google_sheet_tab","resolved":true},
+          {"source_reference":"https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1927576730","resolved_identity":"Function Registry — Gemini Access Procedure","location":"Function Registry!Gemini Access Procedure","source_type":"google_sheet_tab","resolved":true}
+        ]
       }
     }
   }
