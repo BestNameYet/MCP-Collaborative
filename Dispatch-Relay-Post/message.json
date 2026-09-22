@@ -5,12 +5,11 @@
     "bp_key": "BP-001",
     "start_address": "'BP Executions'!C1",
     "return_record": {
-      "requirement": "Initialize and enforce the terminal return contract for BP-001 — Pre-Task Reference Loading.",
+      "requirement": "Locate PRETASK_REFERENCE_DOCUMENTS in Function Registry → Business Process Control.",
       "return_schema": {
-        "return_object_initialized": true,
-        "schema_name": "PRETASK_REFERENCE_READ_RETURN_SCHEMA",
-        "initialized_to_zero_completion": true,
-        "gate_installed": true
+        "named_range": "PRETASK_REFERENCE_DOCUMENTS",
+        "location": "Function Registry spreadsheet 15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770 → 'Business Process Control'!B5:B104",
+        "resolved": true
       }
     }
   }
