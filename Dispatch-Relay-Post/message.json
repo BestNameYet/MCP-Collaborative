@@ -1,1 +1,1 @@
-{"file_ID":"15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770","named_range":"BP_MACHINE_ENTRY","input":{"bp_key":"BP-001"}}
+{"file_ID":"15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770","named_range":"BP_MACHINE_ENTRY","input":{"bp_key":"BP-001","start_address":"'BP Executions'!B1","return_record":{"requirement":"Initialize and enforce the terminal return contract for BP-001 — Pre-Task Reference Loading.","return_schema":{"return_object_initialized":true,"schema_name":"PRETASK_REFERENCE_READ_RETURN_SCHEMA","initialized_to_zero_completion":true,"gate_installed":true}}}}
