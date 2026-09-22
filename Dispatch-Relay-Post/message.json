@@ -1,1 +1,1 @@
-{"file_ID":"15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770","named_range":"BP_MACHINE_ENTRY","input":{"bp_key":"BP-004"}}
+{"file_ID":"15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770","named_range":"BP_MACHINE_ENTRY","input":{"bp_key":"BP-004","start_address":"'BP Executions'!G1","return_record":{"requirement":"Instantiate SCRIPTAGENT_PROGRAM_LAUNCH_RETURN_SCHEMA at ZERO-COMPLETION / TOTAL-FAILURE and install the launch-success gate.","return_schema":{"return_object_initialized":true,"initialized_to_zero_completion":true,"launch_gate_installed":true}}}}
