@@ -5,11 +5,21 @@
     "bp_key": "BP-001",
     "start_address": "'BP Executions'!C1",
     "return_record": {
-      "requirement": "Locate PRETASK_REFERENCE_DOCUMENTS in Function Registry → Business Process Control.",
+      "requirement": "Enumerate every non-empty document reference before reading any.",
       "return_schema": {
-        "named_range": "PRETASK_REFERENCE_DOCUMENTS",
-        "location": "Function Registry spreadsheet 15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770 → 'Business Process Control'!B5:B104",
-        "resolved": true
+        "references": [
+          "file_00000000889481fb92c148b71f526da1",
+          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=518696800",
+          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=133227873",
+          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1861056680",
+          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=435785444",
+          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=441806232",
+          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1169262625",
+          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1726092001",
+          "https://docs.google.com/spreadsheets/d/15PdyoA8rBPLzh9bHnu8lmJi-dkP6LeT9WoKvUlIG770/edit#gid=1927576730"
+        ],
+        "reference_count": 9,
+        "enumeration_completed_before_reads": true
       }
     }
   }
