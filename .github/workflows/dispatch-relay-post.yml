@@ -18,7 +18,6 @@ jobs:
         run: |
           curl --location --fail-with-body --show-error \
             --write-out "\nHTTP_STATUS=%{http_code}\nEFFECTIVE_URL=%{url_effective}\n" \
-            --request POST \
             --header "Content-Type: application/json" \
             --data-binary @Dispatch-Relay-Post/message.json \
             "https://script.google.com/macros/s/AKfycbwHE-BOtWz2ZFeD-XXBfqFVruBzC758HfgYLCc3o133gQr4ku5zBHEggvNc_bD0IdJFYw/exec"
