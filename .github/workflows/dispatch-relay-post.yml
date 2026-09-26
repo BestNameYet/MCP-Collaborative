@@ -9,8 +9,6 @@ on:
 jobs:
   dispatch:
     runs-on: ubuntu-latest
-    env:
-      SCRIPT_ID: 1FDMeqqd1gLMtxahPn9Zvzv-dIcqEr4cZpAsvKlH6yOa8sS4Lr0X_pkNV
 
     steps:
       - name: Check out repository
@@ -18,6 +16,8 @@ jobs:
 
       - name: POST message.json to ScriptAgent
         run: |
+          SCRIPT_ID="$(jq -r '.script_ID' Dispatch-Relay-Post/message.json)"
+
           curl --location --fail-with-body --show-error \
             --write-out "\nHTTP_STATUS=%{http_code}\nEFFECTIVE_URL=%{url_effective}\n" \
             --header "Content-Type: application/json" \
