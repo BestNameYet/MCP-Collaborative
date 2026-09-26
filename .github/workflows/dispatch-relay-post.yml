@@ -10,7 +10,7 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     env:
-      SCRIPT_ID: ${{ vars.SCRIPT_ID }}
+      SCRIPT_ID: 1FDMeqqd1gLMtxahPn9Zvzv-dIcqEr4cZpAsvKlH6yOa8sS4Lr0X_pkNV
 
     steps:
       - name: Check out repository
