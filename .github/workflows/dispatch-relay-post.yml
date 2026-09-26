@@ -9,6 +9,8 @@ on:
 jobs:
   dispatch:
     runs-on: ubuntu-latest
+    env:
+      SCRIPT_ID: ${{ vars.SCRIPT_ID }}
 
     steps:
       - name: Check out repository
@@ -20,4 +22,4 @@ jobs:
             --write-out "\nHTTP_STATUS=%{http_code}\nEFFECTIVE_URL=%{url_effective}\n" \
             --header "Content-Type: application/json" \
             --data-binary @Dispatch-Relay-Post/message.json \
-            "https://script.google.com/macros/s/AKfycbwHE-BOtWz2ZFeD-XXBfqFVruBzC758HfgYLCc3o133gQr4ku5zBHEggvNc_bD0IdJFYw/exec"
+            "https://script.google.com/macros/s/${SCRIPT_ID}/exec"
